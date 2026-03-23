@@ -26,11 +26,19 @@ python train.py \
   --root2 examples/train/drawings \
   --no_flip
 ```
+## 🧪 Testing
 
-Dataset Structure Requirements:
+Run the pre-trained model on images in --dataroot. Replace examples/test with the folder path containing your input images.
+```bash
+python test.py --name anime_style --dataroot examples/test
+```
 
-Replace the example data (examples/train/photos, examples/train/depthmaps, and examples/train/drawings) with the paths to your dataset of photographs, depth maps, and line drawings respectively.
-Corresponding images and depth maps in the file paths specified by --dataroot and --depthroot must have the same file names.
-You will also need to specify a path to an unaligned dataset of line drawings using --root2.
-A small example of training data is provided in examples/train.
-Training Tip: Because the model can start making grayscale photos after some training, it is highly recommended to save model checkpoints frequently by adding the flag --save_epoch_freq 1.
+### 📁 Dataset Requirements
+
+Before you kick off the training, make sure your dataset is organized according to these guidelines:
+
+* **Swap out the paths:** First, you'll need to replace the default example paths (`examples/train/photos`, `examples/train/depthmaps`, and `examples/train/drawings`) with the actual local directories where your photographs, depth maps, and line drawings are stored.
+* **⚠️ Filenames must match exactly:** For the corresponding image pairs in the folders specified by `--dataroot` (photos) and `--depthroot` (depth maps), they **must have the exact same filenames**. Don't mix them up!
+* **Specify unaligned data:** Additionally, you'll need to use the `--root2` parameter to point the model to an unaligned dataset of line drawings.
+
+> 💡 **Training Tip:** As training progresses, the model might occasionally get a bit "lazy" and start outputting grayscale photos instead of pure line drawings. To avoid losing your hard work, we highly recommend adding the `--save_epoch_freq 1` flag to your command. This forces the model to save checkpoints more frequently, making it much easier for you to pick out the absolute best version later!
