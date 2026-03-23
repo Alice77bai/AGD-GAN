@@ -15,6 +15,16 @@ Use the following command to install CLIP (only needed for training).
 conda activate AGD-GAN
 pip install git+[https://github.com/openai/CLIP.git](https://github.com/openai/CLIP.git)
 ```
+### 🧠 Pre-trained Network
+
+We provide a pre-trained network for mapping ImageNet features into depth images. Since the weights file is quite large, we have hosted it on Baidu Netdisk for easy downloading. You can grab it right here:
+
+* **📦 Download Link:** [AGD-GAN_Weights (Baidu Netdisk)](https://pan.baidu.com/s/10p-_dIdrau7u1XEL0C0__w?pwd=dvgs)
+* **🔑 Extraction Code:** `dvgs`
+
+Once you've downloaded the file, simply place the pre-trained features-to-depth network directly into the `./checkpoints/feats2Geom` folder.
+
+
 ## 🧠 Training
 
 To train a model named myexperiment from scratch, use the following command:
